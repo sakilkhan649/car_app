@@ -4,6 +4,7 @@ class AppImages{
   static const String past_image="$buseurl/one_image.png";
   static const String second_image="$buseurl/two_image.png";
   static const String thard_image="$buseurl/three_image.png";
+  static const String profile_image="$buseurl/profile_image.png";
 
 
 

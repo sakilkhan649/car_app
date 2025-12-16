@@ -1,10 +1,12 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../utils/app_colors/app_colors.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
+
+  // Style
   final Color? backgroundColor;
   final Color? textColor;
   final double width;
@@ -12,6 +14,11 @@ class CustomButton extends StatelessWidget {
   final TextStyle? style;
   final EdgeInsetsGeometry? padding;
   final Color? borderColor;
+
+  // 🔹 Icon support
+  final Widget? icon;
+  final bool iconRight;
+  final double iconSpacing;
 
   const CustomButton({
     super.key,
@@ -24,11 +31,16 @@ class CustomButton extends StatelessWidget {
     this.style,
     this.padding,
     this.borderColor,
+
+    // icon params
+    this.icon,
+    this.iconRight = false,
+    this.iconSpacing = 8,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: width.w,
       height: height.h,
       child: ElevatedButton(
@@ -37,6 +49,7 @@ class CustomButton extends StatelessWidget {
           backgroundColor: backgroundColor ?? AppColors.yellow100,
           foregroundColor: textColor ?? Colors.black,
           padding: padding,
+          elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.r),
             side: BorderSide(
@@ -45,7 +58,29 @@ class CustomButton extends StatelessWidget {
             ),
           ),
         ),
-        child: Text(
+        child: _buildContent(),
+      ),
+    );
+  }
+
+  Widget _buildContent() {
+    if (icon == null) {
+      return Text(
+        text,
+        style: style ??
+            TextStyle(
+              color: textColor ?? Colors.black,
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+            ),
+      );
+    }
+
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: iconRight
+          ? [
+        Text(
           text,
           style: style ??
               TextStyle(
@@ -54,7 +89,22 @@ class CustomButton extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
         ),
-      ),
+        SizedBox(width: iconSpacing),
+        icon!,
+      ]
+          : [
+        icon!,
+        SizedBox(width: iconSpacing),
+        Text(
+          text,
+          style: style ??
+              TextStyle(
+                color: textColor ?? Colors.black,
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+              ),
+        ),
+      ],
     );
   }
 }
