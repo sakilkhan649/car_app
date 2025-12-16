@@ -1,0 +1,47 @@
+import 'package:car_app/views/%20%20onboarding_screens/onboarding_screen.dart';
+import 'package:car_app/views/auth_screen/check_email_screen.dart';
+import 'package:car_app/views/auth_screen/register_screen.dart';
+import 'package:car_app/views/home_screens/category_screen/category_screen.dart';
+import 'package:car_app/views/home_screens/home_screen/home_screen.dart';
+import 'package:car_app/views/splash_screens/splash_screen.dart';
+import 'package:get/get.dart';
+
+import '../../views/auth_screen/forget_otp_screen.dart';
+import '../../views/auth_screen/forget_password_screen.dart';
+import '../../views/auth_screen/login_screen.dart';
+import '../../views/auth_screen/set_new_password_screen.dart';
+import '../../views/home_screens/main_home_screen/main_home_screen.dart';
+import '../../views/home_screens/products_screen/products_screen.dart';
+import '../../views/home_screens/seller_screen/seller_screen.dart';
+
+class Routes {
+  static const String splashScreen = "/SplashScreen";
+  static const String onboardingScreen = "/OnboardingScreen";
+  static const String homeScreen = "/HomeScreen";
+  static const String loginScreen = "/LoginScreen";
+  static const String registerScreen = "/RegisterScreen";
+  static const String checkEmailScreen = "/CheckEmailScreen";
+  static const String forgetPasswordScreen = "/ForgetPasswordScreen";
+  static const String forgetOtpScreen = "/ForgetOtpScreen";
+  static const String setNewPasswordScreen = "/SetNewPasswordScreen";
+  static const String mainHomeScreen = "/MainHomeScreen";
+  static const String productsScreen = "/ProductsScreen";
+  static const String categoryScreen = "/CategoryScreen";
+  static const String sellerScreen = "/SellerScreen";
+
+  static List<GetPage> routes = [
+    GetPage(name: splashScreen, page: () => SplashScreen(), transition: Transition.noTransition,),
+    GetPage(name: onboardingScreen, page: () => OnboardingScreen(), transition: Transition.noTransition,),
+    GetPage(name: homeScreen, page: () => HomeScreen(), transition: Transition.noTransition,),
+    GetPage(name: loginScreen, page: () => LoginScreen(), transition: Transition.noTransition,),
+    GetPage(name: registerScreen, page: () => RegisterScreen(), transition: Transition.noTransition,),
+    GetPage(name: checkEmailScreen, page: () => CheckEmailScreen(), transition: Transition.noTransition,),
+    GetPage(name: forgetPasswordScreen, page: () => ForgetPasswordScreen(), transition: Transition.noTransition,),
+    GetPage(name: forgetOtpScreen, page: () => ForgetOtpScreen(), transition: Transition.noTransition,),
+    GetPage(name: setNewPasswordScreen, page: () => SetNewPasswordScreen(), transition: Transition.noTransition,),
+    GetPage(name: mainHomeScreen, page: () => MainHomeScreen(), transition: Transition.noTransition,),
+    GetPage(name: productsScreen, page: () => ProductsScreen(), transition: Transition.noTransition,),
+    GetPage(name: categoryScreen, page: () => CategoryScreen(), transition: Transition.noTransition,),
+    GetPage(name: sellerScreen, page: () => SellerScreen(), transition: Transition.noTransition,),
+  ];
+}
