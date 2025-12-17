@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import '../../../common_widgets/Custom_text.dart';
+import '../../../core/routs/routs.dart';
 import '../../../utils/app_icons/app_icons.dart';
 import '../../../utils/app_images/app_images.dart';
-import '../../../widget/Drawer/Custom_drader.dart';
+import '../main_home_screen/Drawer/drower_screens/Custom_drader.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -56,7 +58,9 @@ class HomeScreen extends StatelessWidget {
           ),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed(Routes.notificationsScreen);
+              },
               icon: SvgPicture.asset(
                 AppIcons.notificationicon,
                 height: 24,

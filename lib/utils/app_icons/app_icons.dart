@@ -15,6 +15,8 @@ class AppIcons {
   static const String faqicon="$iconurl/faqicon.svg";
   static const String ratingicon="$iconurl/rating.svg";
   static const String logouticon="$iconurl/logouticon.svg";
+  static const String back_icon="$iconurl/back_icon.svg";
+  static const String nonotificationicon="$iconurl/no_notification_icon.svg";
 
 
 }

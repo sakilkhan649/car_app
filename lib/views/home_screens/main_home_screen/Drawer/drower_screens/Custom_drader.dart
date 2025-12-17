@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import '../../common_widgets/Custom_button.dart';
-import '../../common_widgets/Custom_text.dart';
-import '../../utils/app_colors/app_colors.dart';
-import '../../utils/app_images/app_images.dart';
-import 'Custom_row_item.dart';
+import '../../../../../common_widgets/Custom_button.dart';
+import '../../../../../common_widgets/Custom_text.dart';
+import '../../../../../core/routs/routs.dart';
+import '../../../../../utils/app_colors/app_colors.dart';
+import '../../../../../utils/app_images/app_images.dart';
+import 'widget/Custom_row_item.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -74,7 +75,7 @@ class CustomDrawer extends StatelessWidget {
                 title: "User Profile",
                 subtitle: "Change profile image,name or password",
                 onTap: () {
-                  // Navigate
+                  Get.toNamed(Routes.userProfileScreen);
                 },
               ),
               DrawerMenuItem(
