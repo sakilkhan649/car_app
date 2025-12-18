@@ -1,19 +1,26 @@
+import 'package:car_app/views/home_screens/home_screen/widget/Custom_container.dart';
+import 'package:car_app/widget/Custom_text_italic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../../common_widgets/Custom_text.dart';
 import '../../../core/routs/routs.dart';
 import '../../../utils/app_icons/app_icons.dart';
 import '../../../utils/app_images/app_images.dart';
+import '../../../widget/Custom_badge.dart';
+import '../../../widget/Custom_pani_card.dart';
+import '../../../widget/Custom_searchbar.dart';
 import '../main_home_screen/Drawer/drower_screens/Custom_drader.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+
+  final searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    // Status bar color change
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         statusBarColor: Colors.white.withOpacity(0.25),
@@ -69,8 +76,89 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
-        body: Center(
-          child: Text("home", style: TextStyle(color: Colors.white)),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(20.w, 24.w, 20.w, 20.w),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomSearchBar(
+                  controller: searchController,
+                  onChanged: (value) {},
+                ),
+                SizedBox(height: 24.h),
+
+                // Main Container
+                CustomCard(
+                  child: Column(
+                    children: [
+                      // Top Row
+                      Row(
+                        children: [
+                          Expanded(
+                            flex: 3,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                // Premium Badge
+                                CustomBadge(text: "Premium Product"),
+
+                                SizedBox(height: 12),
+
+                                // Title
+                                CustomTextItalic(text: "Engine"),
+                                SizedBox(height: 8),
+
+                                // Description
+                                Text(
+                                  "Engine is the science\nof delivering power.",
+                                  style: TextStyle(
+                                    color: Colors.white.withOpacity(0.8),
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14,
+                                    height: 1.5,
+                                  ),
+                                ),
+                                SizedBox(height: 20),
+
+                                // Slide Button
+                                GetXSlideButton(
+                                  onComplete: () {
+                                    Get.toNamed(Routes.productsScreen);
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          // Image
+                          Expanded(
+                            flex: 3,
+                            child: Image.asset(
+                              AppImages.enginone,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 24.h),
+                CustomTextItalic(text: "Popular Categories"),
+                SizedBox(height: 10.h),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomTextItalic(text: "All"),
+                    CustomText(text: "See more", fontSize: 16),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

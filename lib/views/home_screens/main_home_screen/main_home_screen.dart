@@ -23,11 +23,11 @@ class MainHomeScreen extends StatelessWidget {
     AppIcons.sellericon,
   ];
 
-  final List<Widget> pages = const [
+  final List<Widget> pages = [
     HomeScreen(),
-    ProductsScreen(),
-    CategoryScreen(),
-    SellerScreen(),
+    const ProductsScreen(),
+    const CategoryScreen(),
+    const SellerScreen(),
   ];
 
   @override

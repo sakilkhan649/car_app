@@ -11,6 +11,7 @@ import '../../views/auth_screen/login_screen.dart';
 import '../../views/auth_screen/set_new_password_screen.dart';
 import '../../views/home_screens/main_home_screen/Drawer/user_profile_screen/basic_information_screen/basic_information_screen.dart';
 import '../../views/home_screens/main_home_screen/Drawer/user_profile_screen/change_contract_screen/change_contract_screen.dart';
+import '../../views/home_screens/main_home_screen/Drawer/user_profile_screen/change_password_screen/change_password_screen.dart';
 import '../../views/home_screens/main_home_screen/Drawer/user_profile_screen/check_email_otp_screen/check_email_otp_screen.dart';
 import '../../views/home_screens/main_home_screen/Drawer/user_profile_screen/user_profile_screen.dart';
 import '../../views/home_screens/main_home_screen/main_home_screen.dart';
@@ -37,6 +38,7 @@ class Routes {
   static const String basicInformationScreen = "/BasicInformationScreen";
   static const String changeContractScreen = "/ChangeContractScreen";
   static const String checkEmailOtpScreen = "/CheckEmailOtpScreen";
+  static const String changePasswordScreen = "/ChangePasswordScreen";
 
   static List<GetPage> routes = [
     GetPage(
@@ -127,6 +129,11 @@ class Routes {
     GetPage(
       name: checkEmailOtpScreen,
       page: () => CheckEmailOtpScreen(),
+      transition: Transition.noTransition,
+    ),
+    GetPage(
+      name: changePasswordScreen,
+      page: () => ChangePasswordScreen(),
       transition: Transition.noTransition,
     ),
   ];
