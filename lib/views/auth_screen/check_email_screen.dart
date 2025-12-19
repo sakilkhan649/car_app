@@ -7,6 +7,7 @@ import 'package:pinput/pinput.dart';
 import '../../common_widgets/Custom_button.dart';
 import '../../common_widgets/Custom_text.dart';
 import '../../core/routs/routs.dart';
+import '../../widget/Custom_Back_button.dart';
 
 class CheckEmailScreen extends StatelessWidget {
   CheckEmailScreen({super.key});
@@ -30,10 +31,16 @@ class CheckEmailScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white.withOpacity(0.25),
+        backgroundColor: Colors.transparent,
         elevation: 0,
-        toolbarHeight: 0,
-        systemOverlayStyle: SystemUiOverlayStyle.light,
+        leading: CustomBackButton(),
+        title: CustomText(
+          text: "OTP",
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+          fontStyle: FontStyle.italic,
+          color: Colors.white,
+        ),
       ),
       body: Center(
         child: SingleChildScrollView(

@@ -21,6 +21,11 @@ class MyApp extends StatelessWidget {
       child: GetMaterialApp(
         theme: ThemeData(
           scaffoldBackgroundColor: AppColors.black100,
+          appBarTheme: AppBarTheme(
+            backgroundColor: AppColors.black100,
+            elevation: 0,
+            scrolledUnderElevation: 0,
+          )
         ),
         debugShowCheckedModeBanner: false,
         getPages: Routes.routes,

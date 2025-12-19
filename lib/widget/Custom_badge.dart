@@ -29,16 +29,22 @@ class CustomBadge extends StatelessWidget {
             boxShadow ??
             [
               BoxShadow(
-                color: Colors.white54,
                 blurRadius: 0,
-                spreadRadius: 1,
-                offset: const Offset(0, 2),
+                offset: const Offset(-1, 0),
+                spreadRadius: 0,
+                color: Colors.white54,
               ),
               BoxShadow(
-                color: Colors.black45,
-                blurRadius: 1,
-                spreadRadius: 1,
-                offset: Offset(2, 4),
+                blurRadius: 2,
+                offset: const Offset(1, 1),
+                spreadRadius: 0,
+                color: const Color(0xFF5B5B5B),
+              ),
+              BoxShadow(
+                blurRadius: 0,
+                offset: const Offset(2, 2),
+                spreadRadius: 0,
+                color: const Color(0xFF5B5B5B),
               ),
             ],
       ),

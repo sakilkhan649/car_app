@@ -6,11 +6,13 @@ import '../controller/homeSlaiderController.dart';
 class GetXSlideButton extends StatelessWidget {
   final VoidCallback onComplete;
   final String text;
+  final Color color;
 
   GetXSlideButton({
     super.key,
     required this.onComplete,
     this.text = "Slide to continue",
+    this.color = const Color(0xFF878787),
   });
 
   final SlideController controller = Get.put(SlideController());
@@ -31,7 +33,7 @@ class GetXSlideButton extends StatelessWidget {
             width: maxWidth,
             padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
             decoration: BoxDecoration(
-              color: Color(0xFF878787),
+              color: color,
               borderRadius: BorderRadius.circular(50.r),
               border: Border.all(color: Colors.white, width: 1.5),
             ),

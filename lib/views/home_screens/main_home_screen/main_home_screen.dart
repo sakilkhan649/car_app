@@ -25,9 +25,9 @@ class MainHomeScreen extends StatelessWidget {
 
   final List<Widget> pages = [
     HomeScreen(),
-    const ProductsScreen(),
-    const CategoryScreen(),
-    const SellerScreen(),
+    ProductsScreen(),
+    CategoryScreen(),
+    SellerScreen(),
   ];
 
   @override

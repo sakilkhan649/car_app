@@ -1,4 +1,6 @@
+import 'package:car_app/views/home_screens/home_screen/widget/CategoryChip.dart';
 import 'package:car_app/views/home_screens/home_screen/widget/Custom_container.dart';
+import 'package:car_app/views/home_screens/home_screen/widget/product_card.dart';
 import 'package:car_app/widget/Custom_text_italic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,21 +15,16 @@ import '../../../widget/Custom_badge.dart';
 import '../../../widget/Custom_pani_card.dart';
 import '../../../widget/Custom_searchbar.dart';
 import '../main_home_screen/Drawer/drower_screens/Custom_drader.dart';
+import 'controller/category_controller.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
   final searchController = TextEditingController();
+  final categoryController = Get.put(CategoryController());
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
-        statusBarColor: Colors.white.withOpacity(0.25),
-        statusBarIconBrightness: Brightness.light,
-      ),
-    );
-
     return SafeArea(
       child: Scaffold(
         drawer: CustomDrawer(),
@@ -78,9 +75,8 @@ class HomeScreen extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.fromLTRB(20.w, 24.w, 20.w, 20.w),
+            padding: EdgeInsets.fromLTRB(20.w, 24.w, 20.w, 50.w),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomSearchBar(
@@ -89,11 +85,10 @@ class HomeScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 24.h),
 
-                // Main Container
+                /// Main promo card
                 CustomCard(
                   child: Column(
                     children: [
-                      // Top Row
                       Row(
                         children: [
                           Expanded(
@@ -101,16 +96,10 @@ class HomeScreen extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                // Premium Badge
                                 CustomBadge(text: "Premium Product"),
-
                                 SizedBox(height: 12),
-
-                                // Title
                                 CustomTextItalic(text: "Engine"),
                                 SizedBox(height: 8),
-
-                                // Description
                                 Text(
                                   "Engine is the science\nof delivering power.",
                                   style: TextStyle(
@@ -121,9 +110,8 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                 ),
                                 SizedBox(height: 20),
-
-                                // Slide Button
                                 GetXSlideButton(
+                                  color: Color(0xFF878787),
                                   onComplete: () {
                                     Get.toNamed(Routes.productsScreen);
                                   },
@@ -131,8 +119,6 @@ class HomeScreen extends StatelessWidget {
                               ],
                             ),
                           ),
-
-                          // Image
                           Expanded(
                             flex: 3,
                             child: Image.asset(
@@ -145,16 +131,188 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+
                 SizedBox(height: 24.h),
                 CustomTextItalic(text: "Popular Categories"),
                 SizedBox(height: 10.h),
 
+                /// Categories List
+                Obx(
+                  () => SizedBox(
+                    height: 45,
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: categoryController.categories.length,
+                      separatorBuilder: (_, __) => SizedBox(width: 10.w),
+                      itemBuilder: (context, index) {
+                        final category = categoryController.categories[index];
+                        return GestureDetector(
+                          onTap: () => categoryController.selectCategory(index),
+                          child: CategoryChip(
+                            label: category.name,
+                            isselected: category.isSelected,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 24.h),
+
+                /// All + See More Row
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    CustomTextItalic(text: "All"),
-                    CustomText(text: "See more", fontSize: 16),
+                    Obx(
+                      () => CustomTextItalic(
+                        text: categoryController.selectedCategory.value,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () => Get.toNamed(Routes.allProductScreen),
+                      child: CustomText(
+                        text: "See more",
+                        fontSize: 16,
+                        color: Colors.white70,
+                      ),
+                    ),
                   ],
+                ),
+
+                SizedBox(height: 16.h),
+
+                /// Product Grid (fixed!)
+                Obx(
+                  () => GridView.builder(
+                    itemCount: categoryController.filteredProducts.length,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 12,
+                      mainAxisSpacing: 12,
+                      childAspectRatio: 0.70,
+                    ),
+
+                    itemBuilder: (context, index) {
+                      final product =
+                          categoryController.filteredProducts[index];
+                      return ProductCard(
+                        name: product.name,
+                        imageUrl: product.imageUrl,
+                        price: product.price,
+                      );
+                    },
+                  ),
+                ),
+
+                SizedBox(height: 21.h),
+
+                /// Main promo card
+                CustomCard(
+                  gradientColors: [Color(0xFF5BB349), Color(0xFF5BB349)],
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            flex: 3,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 14.w,
+                                    vertical: 8.h,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30.r),
+                                    border: Border.all(
+                                      color: Colors.black,
+                                      width: 1,
+                                    ),
+                                  ),
+                                  child: CustomText(
+                                    text: "Become a Seller",
+                                    color: Colors.black,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                                SizedBox(height: 12),
+                                CustomTextItalic(
+                                  text: "Drive\nYour Business Forward",
+                                  color: Colors.black,
+                                ),
+                                SizedBox(height: 8),
+                                CustomText(
+                                  text: "Sell today, reach\neverywhere.",
+                                  color: Colors.black,
+                                  fontSize: 13,
+                                ),
+                                SizedBox(height: 20),
+                                GetXSlideButton(
+                                  color: Color(0xFF376B2C),
+                                  onComplete: () {
+                                    Get.toNamed(Routes.productsScreen);
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            flex: 3,
+                            child: Image.asset(
+                              AppImages.manimage,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomTextItalic(text: "New Arrival"),
+                    GestureDetector(
+                      onTap: () => Get.toNamed(Routes.allProductScreen),
+                      child: CustomText(
+                        text: "See more",
+                        fontSize: 16,
+                        color: Colors.white70,
+                      ),
+                    ),
+                  ],
+                ),
+
+                SizedBox(height: 16.h),
+
+                /// Product Grid (fixed!)
+                Obx(
+                  () => GridView.builder(
+                    itemCount: categoryController.filteredProducts.length,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 12,
+                      mainAxisSpacing: 12,
+                      childAspectRatio: 0.70,
+                    ),
+
+                    itemBuilder: (context, index) {
+                      final product =
+                          categoryController.filteredProducts[index];
+                      return ProductCard(
+                        name: product.name,
+                        imageUrl: product.imageUrl,
+                        price: product.price,
+                      );
+                    },
+                  ),
                 ),
               ],
             ),

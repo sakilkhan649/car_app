@@ -9,6 +9,7 @@ import '../../common_widgets/Custom_textField.dart';
 import '../../core/routs/routs.dart';
 import '../../utils/app_const/app_const.dart';
 import '../../utils/app_icons/app_icons.dart';
+import '../../widget/Custom_Back_button.dart';
 import '../../widget/Custom_card_circle.dart';
 
 class SetNewPasswordScreen extends StatelessWidget {
@@ -27,12 +28,17 @@ class SetNewPasswordScreen extends StatelessWidget {
     return Form(
       key: _formkey,
       child: Scaffold(
-        extendBodyBehindAppBar: true,
         appBar: AppBar(
-          backgroundColor: Colors.white.withOpacity(0.25),
+          backgroundColor: Colors.transparent,
           elevation: 0,
-          toolbarHeight: 0,
-          systemOverlayStyle: SystemUiOverlayStyle.light,
+          leading: CustomBackButton(),
+          title: CustomText(
+            text: "Set New Password",
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+            fontStyle: FontStyle.italic,
+            color: Colors.white,
+          ),
         ),
         body: SingleChildScrollView(
           child: Padding(

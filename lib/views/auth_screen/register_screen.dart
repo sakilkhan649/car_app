@@ -10,6 +10,7 @@ import '../../core/routs/routs.dart';
 import '../../utils/app_colors/app_colors.dart';
 import '../../utils/app_const/app_const.dart';
 import '../../utils/app_images/app_images.dart';
+import '../../widget/Custom_Back_button.dart';
 
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({super.key});
@@ -27,16 +28,21 @@ class RegisterScreen extends StatelessWidget {
     return Form(
       key: _formkey,
       child: Scaffold(
-        extendBodyBehindAppBar: true,
         appBar: AppBar(
-          backgroundColor: Colors.white.withOpacity(0.25),
+          backgroundColor: Colors.transparent,
           elevation: 0,
-          toolbarHeight: 0,
-          systemOverlayStyle: SystemUiOverlayStyle.light,
+          leading: CustomBackButton(),
+          title: CustomText(
+            text: "Register",
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+            fontStyle: FontStyle.italic,
+            color: Colors.white,
+          ),
         ),
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.fromLTRB(20, 68, 20, 199),
+            padding: EdgeInsets.fromLTRB(20, 20, 20, 199),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,

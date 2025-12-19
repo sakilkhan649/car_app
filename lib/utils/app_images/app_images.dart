@@ -7,6 +7,8 @@ class AppImages{
   static const String profile_image="$buseurl/profile_image.png";
   static const String usermailimage="$buseurl/usermailimage.png";
   static const String enginone="$buseurl/enginone.png";
+  static const String cartire="$buseurl/cartire.png";
+  static const String manimage="$buseurl/manimage.png";
 
 
 

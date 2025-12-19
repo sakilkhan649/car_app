@@ -2,6 +2,7 @@ import 'package:car_app/views/%20%20onboarding_screens/onboarding_screen.dart';
 import 'package:car_app/views/auth_screen/check_email_screen.dart';
 import 'package:car_app/views/auth_screen/register_screen.dart';
 import 'package:car_app/views/home_screens/category_screen/category_screen.dart';
+import 'package:car_app/views/home_screens/home_screen/all_product_screen.dart';
 import 'package:car_app/views/home_screens/home_screen/home_screen.dart';
 import 'package:car_app/views/splash_screens/splash_screen.dart';
 import 'package:get/get.dart';
@@ -39,6 +40,7 @@ class Routes {
   static const String changeContractScreen = "/ChangeContractScreen";
   static const String checkEmailOtpScreen = "/CheckEmailOtpScreen";
   static const String changePasswordScreen = "/ChangePasswordScreen";
+  static const String allProductScreen = "/AllProductScreen";
 
   static List<GetPage> routes = [
     GetPage(
@@ -134,6 +136,11 @@ class Routes {
     GetPage(
       name: changePasswordScreen,
       page: () => ChangePasswordScreen(),
+      transition: Transition.noTransition,
+    ),
+    GetPage(
+      name: allProductScreen,
+      page: () => AllProductScreen(),
       transition: Transition.noTransition,
     ),
   ];
