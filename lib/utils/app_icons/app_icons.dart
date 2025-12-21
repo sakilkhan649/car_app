@@ -19,6 +19,9 @@ class AppIcons {
   static const String nonotificationicon="$iconurl/no_notification_icon.svg";
   static const String contacticon="$iconurl/contacticon.svg";
   static const String filtericon="$iconurl/filtericon.svg";
+  static const String magnifyingGlass="$iconurl/magnifyingGlass.svg";
+  static const String addcategoryicon="$iconurl/addcategoryicon.svg";
+  static const String myboxicon="$iconurl/myboxicon.svg";
 
 
 }

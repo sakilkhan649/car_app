@@ -104,13 +104,13 @@ class ItemCard extends StatelessWidget {
     switch (status.toLowerCase()) {
       case 'new':
         return const LinearGradient(
-          colors: [Color(0xFF5BB349), Color(0xFFB2FFA2)],
+          colors: [Color(0xFFFF0000), Color(0xFFFF0000),Color(0xFFFFB5B5)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         );
       case 'used':
         return const LinearGradient(
-          colors: [Color(0xFFEE3B3B), Color(0xFFFFBABA)],
+          colors: [Color(0xFFE7BE00), Color(0xFFE7BE00),Color(0xFFFFEFA6)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         );

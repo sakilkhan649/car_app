@@ -4,6 +4,10 @@ import 'package:car_app/views/auth_screen/register_screen.dart';
 import 'package:car_app/views/home_screens/category_screen/category_screen.dart';
 import 'package:car_app/views/home_screens/home_screen/all_product_screen.dart';
 import 'package:car_app/views/home_screens/home_screen/home_screen.dart';
+import 'package:car_app/views/home_screens/seller_screen/add_category_screen/add_category_screen.dart';
+import 'package:car_app/views/home_screens/seller_screen/my_product_screen/my_product_screen.dart';
+import 'package:car_app/views/home_screens/seller_screen/uplode_screen/mainuplode_screen/mainuplode_screen.dart';
+import 'package:car_app/views/home_screens/seller_screen/uplode_screen/uplode_screen.dart';
 import 'package:car_app/views/splash_screens/splash_screen.dart';
 import 'package:get/get.dart';
 import '../../views/auth_screen/forget_otp_screen.dart';
@@ -41,6 +45,10 @@ class Routes {
   static const String checkEmailOtpScreen = "/CheckEmailOtpScreen";
   static const String changePasswordScreen = "/ChangePasswordScreen";
   static const String allProductScreen = "/AllProductScreen";
+  static const String uplodeScreen = "/UplodeScreen";
+  static const String addCategoryScreen = "/AddCategoryScreen";
+  static const String myProductScreen = "/MyProductScreen";
+  static const String mainuplodeScreen = "/MainuplodeScreen";
 
   static List<GetPage> routes = [
     GetPage(
@@ -141,6 +149,26 @@ class Routes {
     GetPage(
       name: allProductScreen,
       page: () => AllProductScreen(),
+      transition: Transition.noTransition,
+    ),
+    GetPage(
+      name: uplodeScreen,
+      page: () => UplodeScreen(),
+      transition: Transition.noTransition,
+    ),
+    GetPage(
+      name: addCategoryScreen,
+      page: () => AddCategoryScreen(),
+      transition: Transition.noTransition,
+    ),
+    GetPage(
+      name: myProductScreen,
+      page: () => MyProductScreen(),
+      transition: Transition.noTransition,
+    ),
+    GetPage(
+      name: mainuplodeScreen,
+      page: () => MainuplodeScreen(),
       transition: Transition.noTransition,
     ),
   ];
