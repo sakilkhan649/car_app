@@ -26,6 +26,8 @@ class AppIcons {
   static const String sellerprofileicon="$iconurl/sellerprofileicon.svg";
   static const String whatsupicon="$iconurl/whatsupicon.svg";
   static const String searchicon="$iconurl/searchicon.svg";
+  static const String croxicon="$iconurl/croxicon.svg";
+  static const String tiricon="$iconurl/tiricon.svg";
 
 
 }

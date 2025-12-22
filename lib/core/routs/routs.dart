@@ -4,6 +4,8 @@ import 'package:car_app/views/auth_screen/register_screen.dart';
 import 'package:car_app/views/home_screens/category_screen/category_screen.dart';
 import 'package:car_app/views/home_screens/home_screen/all_product_screen.dart';
 import 'package:car_app/views/home_screens/home_screen/home_screen.dart';
+import 'package:car_app/views/home_screens/main_home_screen/Drawer/about_screen/about_screen.dart';
+import 'package:car_app/views/home_screens/main_home_screen/Drawer/faq_screen/faq_screen.dart';
 import 'package:car_app/views/home_screens/seller_screen/sellerMyProduct_screen/sellerMyProduct_screen.dart';
 import 'package:car_app/views/splash_screens/splash_screen.dart';
 import 'package:get/get.dart';
@@ -11,6 +13,8 @@ import '../../views/auth_screen/forget_otp_screen.dart';
 import '../../views/auth_screen/forget_password_screen.dart';
 import '../../views/auth_screen/login_screen.dart';
 import '../../views/auth_screen/set_new_password_screen.dart';
+import '../../views/home_screens/main_home_screen/Drawer/privacy_policy_screen/privacy_policy_screen.dart';
+import '../../views/home_screens/main_home_screen/Drawer/termsandcondition_screen/termsandcondition_screen.dart';
 import '../../views/home_screens/main_home_screen/Drawer/user_profile_screen/basic_information_screen/basic_information_screen.dart';
 import '../../views/home_screens/main_home_screen/Drawer/user_profile_screen/change_contract_screen/change_contract_screen.dart';
 import '../../views/home_screens/main_home_screen/Drawer/user_profile_screen/change_password_screen/change_password_screen.dart';
@@ -57,6 +61,10 @@ class Routes {
   static const String productsDetailsScreen = "/ProductsDetailsScreen";
   static const String selleraddnewcategory = "/Selleraddnewcategory";
   static const String sellermyproductScreen = "/SSellermyproductScreen";
+  static const String faqScreen = "/FaqScreen";
+  static const String termsandconditionScreen = "/TermsandconditionScreen";
+  static const String privacyPolicyScreen = "/PrivacyPolicyScreen";
+  static const String aboutScreen = "/AboutScreen";
 
   static List<GetPage> routes = [
     GetPage(
@@ -197,6 +205,26 @@ class Routes {
     GetPage(
       name: sellermyproductScreen,
       page: () => SellermyproductScreen(),
+      transition: Transition.noTransition,
+    ),
+    GetPage(
+      name: faqScreen,
+      page: () => FaqScreen(),
+      transition: Transition.noTransition,
+    ),
+    GetPage(
+      name: termsandconditionScreen,
+      page: () => TermsandconditionScreen(),
+      transition: Transition.noTransition,
+    ),
+    GetPage(
+      name: privacyPolicyScreen,
+      page: () => PrivacyPolicyScreen(),
+      transition: Transition.noTransition,
+    ),
+    GetPage(
+      name: aboutScreen,
+      page: () => AboutScreen(),
       transition: Transition.noTransition,
     ),
   ];

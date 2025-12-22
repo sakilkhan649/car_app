@@ -46,7 +46,7 @@ class ProductItemCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: const Color(0xFF212121),
           borderRadius: BorderRadius.circular(24),
-          border: Border.all(color: Colors.white70),
+          border: Border.all(color: Colors.grey, width: 1),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

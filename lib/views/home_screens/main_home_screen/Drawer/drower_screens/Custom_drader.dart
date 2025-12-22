@@ -8,6 +8,7 @@ import '../../../../../common_widgets/Custom_text.dart';
 import '../../../../../core/routs/routs.dart';
 import '../../../../../utils/app_colors/app_colors.dart';
 import '../../../../../utils/app_images/app_images.dart';
+import '../../../products_screen/products_details_screen/widget/ratingdaialog.dart';
 import 'widget/Custom_row_item.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -83,7 +84,7 @@ class CustomDrawer extends StatelessWidget {
                 title: "Privacy Policy",
                 subtitle: "Manage your data and permissions.",
                 onTap: () {
-                  // Navigate
+                  Get.toNamed(Routes.privacyPolicyScreen);
                 },
               ),
               DrawerMenuItem(
@@ -91,7 +92,7 @@ class CustomDrawer extends StatelessWidget {
                 title: "Terms & Conditions",
                 subtitle: "Read terms & conditions before use",
                 onTap: () {
-                  // Navigate
+                  Get.toNamed(Routes.termsandconditionScreen);
                 },
               ),
               DrawerMenuItem(
@@ -99,7 +100,7 @@ class CustomDrawer extends StatelessWidget {
                 title: "About",
                 subtitle: "Learn more about our app and mission.",
                 onTap: () {
-                  // Navigate
+                  Get.toNamed(Routes.aboutScreen);
                 },
               ),
               DrawerMenuItem(
@@ -107,7 +108,7 @@ class CustomDrawer extends StatelessWidget {
                 title: "FAQ",
                 subtitle: "Find answers to common questions.",
                 onTap: () {
-                  // Navigate
+                  Get.toNamed(Routes.faqScreen);
                 },
               ),
               DrawerMenuItem(
@@ -115,7 +116,10 @@ class CustomDrawer extends StatelessWidget {
                 title: "Rating",
                 subtitle: "Share your feedback and rate us.",
                 onTap: () {
-                  // Navigate
+                  showDialog(
+                    context: context,
+                    builder: (_) => RatingDialogGetX(),
+                  );
                 },
               ),
 

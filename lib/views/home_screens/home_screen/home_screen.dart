@@ -113,7 +113,7 @@ class HomeScreen extends StatelessWidget {
                                 GetXSlideButton(
                                   color: Color(0xFF878787),
                                   onComplete: () {
-                                    Get.toNamed(Routes.productsScreen);
+                                    Get.toNamed(Routes.sellermyproductScreen);
                                   },
                                 ),
                               ],
@@ -254,7 +254,7 @@ class HomeScreen extends StatelessWidget {
                                 GetXSlideButton(
                                   color: Color(0xFF376B2C),
                                   onComplete: () {
-                                    Get.toNamed(Routes.productsScreen);
+                                    Get.toNamed(Routes.sellermyproductScreen);
                                   },
                                 ),
                               ],
