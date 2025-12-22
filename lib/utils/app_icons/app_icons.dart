@@ -22,6 +22,10 @@ class AppIcons {
   static const String magnifyingGlass="$iconurl/magnifyingGlass.svg";
   static const String addcategoryicon="$iconurl/addcategoryicon.svg";
   static const String myboxicon="$iconurl/myboxicon.svg";
+  static const String myboxtwoicon="$iconurl/myboxtwoicon.svg";
+  static const String sellerprofileicon="$iconurl/sellerprofileicon.svg";
+  static const String whatsupicon="$iconurl/whatsupicon.svg";
+  static const String searchicon="$iconurl/searchicon.svg";
 
 
 }

@@ -4,10 +4,7 @@ import 'package:car_app/views/auth_screen/register_screen.dart';
 import 'package:car_app/views/home_screens/category_screen/category_screen.dart';
 import 'package:car_app/views/home_screens/home_screen/all_product_screen.dart';
 import 'package:car_app/views/home_screens/home_screen/home_screen.dart';
-import 'package:car_app/views/home_screens/seller_screen/add_category_screen/add_category_screen.dart';
-import 'package:car_app/views/home_screens/seller_screen/my_product_screen/my_product_screen.dart';
-import 'package:car_app/views/home_screens/seller_screen/uplode_screen/mainuplode_screen/mainuplode_screen.dart';
-import 'package:car_app/views/home_screens/seller_screen/uplode_screen/uplode_screen.dart';
+import 'package:car_app/views/home_screens/seller_screen/sellerMyProduct_screen/sellerMyProduct_screen.dart';
 import 'package:car_app/views/splash_screens/splash_screen.dart';
 import 'package:get/get.dart';
 import '../../views/auth_screen/forget_otp_screen.dart';
@@ -21,8 +18,15 @@ import '../../views/home_screens/main_home_screen/Drawer/user_profile_screen/che
 import '../../views/home_screens/main_home_screen/Drawer/user_profile_screen/user_profile_screen.dart';
 import '../../views/home_screens/main_home_screen/main_home_screen.dart';
 import '../../views/home_screens/main_home_screen/notifications_screen/notifications_screen.dart';
+import '../../views/home_screens/products_screen/products_details_screen/products_details_screen.dart';
 import '../../views/home_screens/products_screen/products_screen.dart';
+import '../../views/home_screens/seller_screen/sellerAddNewCategory_screen/sellerAddNewCategory.dart';
 import '../../views/home_screens/seller_screen/seller_screen.dart';
+import '../../views/home_screens/seller_screen/selleruplode_screen/add_category_screen/add_category_screen.dart';
+import '../../views/home_screens/seller_screen/selleruplode_screen/mainuplode_screen/mainuplode_screen.dart';
+import '../../views/home_screens/seller_screen/selleruplode_screen/my_product_screen/add_new_category/add_new_category.dart';
+import '../../views/home_screens/seller_screen/selleruplode_screen/my_product_screen/my_product_screen.dart';
+import '../../views/home_screens/seller_screen/selleruplode_screen/uplode_screen.dart';
 
 class Routes {
   static const String splashScreen = "/SplashScreen";
@@ -49,6 +53,10 @@ class Routes {
   static const String addCategoryScreen = "/AddCategoryScreen";
   static const String myProductScreen = "/MyProductScreen";
   static const String mainuplodeScreen = "/MainuplodeScreen";
+  static const String addNewCategory = "/AddNewCategory";
+  static const String productsDetailsScreen = "/ProductsDetailsScreen";
+  static const String selleraddnewcategory = "/Selleraddnewcategory";
+  static const String sellermyproductScreen = "/SSellermyproductScreen";
 
   static List<GetPage> routes = [
     GetPage(
@@ -169,6 +177,26 @@ class Routes {
     GetPage(
       name: mainuplodeScreen,
       page: () => MainuplodeScreen(),
+      transition: Transition.noTransition,
+    ),
+    GetPage(
+      name: addNewCategory,
+      page: () => AddNewCategory(),
+      transition: Transition.noTransition,
+    ),
+    GetPage(
+      name: Routes.productsDetailsScreen,
+      page: () => ProductsDetailsScreen(),
+      transition: Transition.noTransition,
+    ),
+    GetPage(
+      name: selleraddnewcategory,
+      page: () => Selleraddnewcategory(),
+      transition: Transition.noTransition,
+    ),
+    GetPage(
+      name: sellermyproductScreen,
+      page: () => SellermyproductScreen(),
       transition: Transition.noTransition,
     ),
   ];

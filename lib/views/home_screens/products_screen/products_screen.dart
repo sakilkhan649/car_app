@@ -5,6 +5,7 @@ import 'package:car_app/widget/Custom_text_italic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import '../../../core/routs/routs.dart';
 import '../../../utils/app_icons/app_icons.dart';
 import '../main_home_screen/Drawer/drower_screens/Custom_drader.dart';
 import 'controller/itemcontroller.dart';
@@ -55,11 +56,16 @@ class ProductsScreen extends StatelessWidget {
                   ),
                   itemBuilder: (context, index) {
                     final product = itemController.products[index];
-                    return ItemCard(
-                      name: product.name,
-                      imageUrl: product.imageUrl,
-                      price: product.price,
-                      status: product.status,
+                    return InkWell(
+                      onTap: (){
+                        Get.toNamed(Routes.productsDetailsScreen);
+                      },
+                      child: ItemCard(
+                        name: product.name,
+                        imageUrl: product.imageUrl,
+                        price: product.price,
+                        status: product.status,
+                      ),
                     );
                   },
                 ),

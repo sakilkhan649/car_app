@@ -2,9 +2,7 @@ import 'package:car_app/utils/app_icons/app_icons.dart';
 import 'package:car_app/views/home_screens/seller_screen/widget/containerbox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
 import '../../../core/routs/routs.dart';
 import '../../../widget/Custom_text_italic.dart';
 
@@ -47,7 +45,7 @@ class SellerScreen extends StatelessWidget {
                 Color(0xFFFFEFA6),
               ],
               onTap: () {
-                Get.toNamed(Routes.addCategoryScreen);
+                Get.toNamed(Routes.selleraddnewcategory);
               },
             ),
             SizedBox(height: 12),
@@ -61,7 +59,7 @@ class SellerScreen extends StatelessWidget {
                 Color(0xFFFFB5B5),
               ],
               onTap: () {
-                Get.toNamed(Routes.myProductScreen);
+                Get.toNamed(Routes.sellermyproductScreen);
               },
             ),
             SizedBox(height: 5),
